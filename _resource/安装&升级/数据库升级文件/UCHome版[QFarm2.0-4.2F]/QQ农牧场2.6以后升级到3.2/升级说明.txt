@@ -1,0 +1,3 @@
+1、先把文件update3.2.php和up_username.php上传到qqfarm目录下；
+2、用update3.2.php升级农场数据库；
+3、再用up_username.php把UCH用户名转到农场表里。

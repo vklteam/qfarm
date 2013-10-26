@@ -1,0 +1,11 @@
+<?php
+//升级黑土地
+
+
+echo '[{"alread":false,"id":1,"msg":"孔雀草 ","nick":"第六元素","status":1,"time":1319098167,"type":7,"uin":824500039},{"alread":false,"id":2,"msg":"鸢尾巧克力","nick":"有内涵的 -Manら         ","status":1,"time":1319105022,"type":1,"uin":819950452},{"alread":false,"id":3,"msg":"八仙花","nick":"第六元素","status":1,"time":1319175544,"type":3,"uin":824500039},{"alread":false,"id":4,"msg":"八仙花","nick":"有内涵的 -Manら         ","status":1,"time":1319191387,"type":3,"uin":819950452},{"alread":false,"id":5,"msg":"黄金飞刀","nick":"第六元素","status":1,"time":1319250338,"type":4,"uin":824500039},{"alread":false,"id":6,"msg":"朱雀花","nick":"第六元素","status":1,"time":1319463374,"type":5,"uin":824500039},{"alread":false,"id":7,"msg":"朱雀花","nick":"第六元素","status":1,"time":1319634618,"type":5,"uin":824500039},{"alread":false,"id":8,"msg":"农场经验","nick":"/坏笑 滑嘟嘟 ⊙_⊙","status":1,"time":1319820704,"type":2,"uin":79990716},{"alread":false,"id":9,"msg":"牧草果实","nick":"有内涵的 -Manら         ","status":1,"time":1319843378,"type":8,"uin":819950452},{"alread":false,"id":10,"msg":"孔雀草 ","nick":"网上王子","status":1,"time":1319852401,"type":7,"uin":326062975},{"alread":false,"id":11,"msg":"牧草果实","nick":"/坏笑 滑嘟嘟 ⊙_⊙","status":1,"time":1319951272,"type":8,"uin":79990716},{"alread":false,"id":12,"msg":"朱雀花","nick":"第六元素","status":1,"time":1319953038,"type":5,"uin":824500039},{"alread":false,"id":13,"msg":"农场经验","nick":"★涐只恠乎您︺￣★","status":1,"time":1319985708,"type":2,"uin":592395756},{"alread":false,"id":14,"msg":"牧草果实","nick":"/坏笑 滑嘟嘟 ⊙_⊙","status":1,"time":1320067299,"type":8,"uin":79990716},{"alread":false,"id":15,"msg":"普通鱼食","nick":"第六元素","status":1,"time":1320138991,"type":6,"uin":824500039},{"alread":false,"id":16,"msg":"牧草果实","nick":"/坏笑 滑嘟嘟 ⊙_⊙","status":1,"time":1320154726,"type":8,"uin":79990716},{"alread":false,"id":17,"msg":"牧草果实","nick":"幸运之神","status":1,"time":1320377086,"type":8,"uin":314044350},{"alread":false,"id":18,"msg":"牧草果实","nick":"/坏笑 滑嘟嘟 ⊙_⊙","status":1,"time":1320481542,"type":8,"uin":79990716},{"alread":false,"id":19,"msg":"鸢尾巧克力","nick":"五富№四喜","status":0,"time":1320801588,"type":1,"uin":20148785}]';
+
+	//$_QFG['db']->query("UPDATE app_qqfarm_user set money=$money where uid=" . $_QFG['uid']);
+	//$_QFG['db']->query("UPDATE app_qqfarm_nc set status='" . qf_encode(array_values($status)) . "',black='" . qf_encode($black) . "' where uid=" . $_QFG['uid']);
+
+
+?>

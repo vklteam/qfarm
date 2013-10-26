@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>农场安装说明</title>
+<style type="text/css">
+<!--
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.STYLE2 {color: #000000; font-weight: bold; }
+-->
+</style>
+</head>
+<body>
+<p class="STYLE1">一、必读：</p>
+<p class="STYLE2">1.首先请运行“QFarm自动构建工具V2.0.cmd”，构建你需要的QFarm版本到upload/目录。</p>
+<p class="STYLE2">2.所有版本上传后请确认qqfarm/core/data/ 目录有读写删权限，UC版qqfarm/core/api/ucenter/client/data也需要读写删权限 。</p>
+<p class="STYLE2">3.如果安装后白屏，请检查qqfarm/core/module/目录的资源文件是否完整。</p>
+<p class="STYLE2">4.如果看不到管理后台，请检查qqfarm/core/config/_qsc.php管理员配置,然后删除qqfarm/core/data/_qsc.php后重试。</p>
+<p class="STYLE2">5.出现‘请登录’提示的，也请删除qqfarm/core/data/_qsc.php后重试。</p>
+<p class="STYLE2">6.最后，请善用论坛搜索功能及群内交流功能，管理员很忙，可能无法一一为您解答，请见谅。</p>
+<p class="STYLE1">&nbsp;</p>
+<p class="STYLE1">二、UCenter模式安装说明</p>
+<p>1. 使用UC版接口模式，只上传 upload/4ucenter/ 内的文件到服务器即可<br />
+</p>
+<p>2. 确认已删除 qqfarm/core/data/_qsc.php<br />
+</p>
+<p>3. 修改 qqfarm/core/config/_qsc.php 中 $_QSC['apiType'] = 'ucenter';<br />
+</p>
+<p>4. 进入你的UCenter后台，按照如下步骤操作:</p>
+<p>a. 应用管理-&gt;添加新应用-&gt;自定义安装<br />
+  b. 应用名称: 农场牧场<br />
+  c. 应用的 URL: http://127.1.1.1/qqfarm/core<br />
+  d. 通信密钥: sfds41564fasfhg5j6k67 <br />
+  e. 应用类型: 其他<br />
+  f. 查看个人资料页面地址: http://127.1.1.1/home.php?mod=space&amp;uid=%s&amp;do=profile<br />
+  g. 应用接口文件名称: uc.php<br />
+  h. 是否开启同步登录: 是<br />
+  i. 是否接受通知: 是</p>
+<p>其他内容无需填写，上述列表数据只是事例，请根据实际情况填写</p>
+<p>j. 提交<br />
+  k. 复制如下内容: 应用的 UCenter 配置信息<br />
+</p>
+<p>5. 修改 qqfarm/core/config/api/ucenter.php</p>
+<p>a. UCenter配置参数 用刚复制的内容粘贴覆盖即可，如果你的UC是GBK版，请修改参数 define('UC_CONNECT', ''); 或者 define('UC_DBCHARSET', 'utf8'); <br />
+  b. 同步登录 Cookie 设置 可保留默认值<br />
+  c. QFarm数据库参数 此项最为重要，请正确填写<br />
+</p>
+<p>6. 安装数据库，安装包中找到 “安装&amp;升级/全新安装/”：</p>
+<p># 请将两个文件放农场根目录<br />
+  # 浏览器里运行 http://您的域名/一些路径/install.php<br />
+</p>
+<p>7. 访问http://127.1.1.1/qqfarm 登录即可</p>
+<p>&nbsp;</p>
+<p class="STYLE1">三、Discuz!模式安装说明</p>
+<p>1.上传“upload/4discuz”里的所有文件到你的DZ服务器根目录</p>
+<p>2.用创始人账号登陆DX后台，选择 插件-&gt;安装农场即可。安装完毕后可能还需要点启用。</p>
+<p>3.到前台插件中即可看到农场的链接</p>
+<p>&nbsp;</p>
+<p class="STYLE1">四、Discuz!x模式安装说明</p>
+<p>1.上传“upload/4discuzx”里的所有文件到你的DX服务器根目录</p>
+<p>2.用创始人账号登陆DX后台，选择 插件-&gt;安装新插件，点安装即可。安装完毕后可能还需要点启用。</p>
+<p>3.到前台插件中即可看到农产的链接</p>
+<p>&nbsp;</p>
+<p><span class="STYLE1">五、UCHome模式安装说明</span><br />
+</p>
+<p>1、上传“upload/4uchome”里的所有文件到你的UCHome服务器根目录</p>
+<p>2、 安装数据库，安装包中找到 “安装&amp;升级/全新安装/”：</p>
+<p># 请将install目录上传农场core目录<br />
+# 浏览器里运行 http://您的域名/一些路径/core/install/</p>
+<p>3、在header.htm文件中，搜索“热闹”，并在后面加以下代码<br />
+  &lt;li&gt;&lt;img src=&quot;image/app/farm.gif&quot;&gt;&lt;a href=&quot;qqfarm.php&quot;&gt;农场庄园&lt;/a&gt;&lt;/li&gt;  <br />
+</p>
+<p>4、更新UCH缓存，更新浏览器缓存，更新FLASH缓存，体验农场庄园！</p>
+<p>&nbsp;</p>
+<p><span class="STYLE1">六、PHPWind模式安装说明</span><br />
+</p>
+<p>1、上传“upload/4phpwind”里的所有文件到你的PW服务器根目录</p>
+<p>2.PW版有个特殊的问题: 创始人是以用户名的形式保存，故QFarm没有自动同步为管理员。</p>
+<p>请在安装前设置 hack/qqfarm/core/config/_qsc.php中的管理员 。若已安装过，请再删除hack/qqfarm/core/data/_qsc.php </p>
+<p>3.进入后台，应用中心-&gt;插件中心-&gt;安装农场</p>
+<p>4.插件前台导航名称及显示位置修改请到“<strong>模式导航-&gt;站点导航</strong>”</p>
+
+
+<p><br />
+</p>
+<p></p>
+</body>
+</html>

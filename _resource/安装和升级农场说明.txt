@@ -1,0 +1,9 @@
+	因为农场文件太多，每次升级我们都完整打包，好多用户都不知怎么升级，现在在这写下教程：
+
+	1.下载新农场PHP包解压，里面是没有SWF文件，你先打开 [module下载地址.txt]下载module包
+	2.把下载下来的module解压到phpYe.QFarm\source\core\module\目录下
+	3.打开[QFarm自动构建工具V1.5.CMD]构建你需要的农场接口版本到phpYe.QFarm\upload\目录下
+	4.到服务器上面把现在在用的农场整个文件夹改名，比如qqfarm_20100907 再把你构建好的最新农场上传上去
+
+	注意：所有版本上传后请确认qqfarm/core/data/ 目录有读写删权限
+

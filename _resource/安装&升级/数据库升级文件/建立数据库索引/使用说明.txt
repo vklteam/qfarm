@@ -1,0 +1,3 @@
+【升级工具】
+    请将此文件放在 x/qfarm/core/
+    浏览器里运行 http://您的域名/x/qfarm/core/add_index.php

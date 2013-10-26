@@ -1,0 +1,44 @@
+<link rel="stylesheet" type="text/css" href="<?=$qf_root?>/static/style.css" />
+
+<h1><img src="<?=$qf_root?>/static/farm.gif" alt="app" /> 农场庄园</h1>
+
+<!--QF主框架区域-->
+<div id="qfbody">
+	<iframe id="myfarm" name="myfarm" src="<?=$qf_root?>/core/nmc.php?type=nc" frameborder="0" scrolling="no" width="960px" height="620px"></iframe>
+	<div id="qfplayer">
+		<div id="qfplayer_main"></div>
+		<div id="qfplayer_ctrl">
+			<input class="button" type="button" value="关闭播放器" onclick="loadPlayer(0);" />
+			<input class="button" type="button" value="迷你版播放器" onclick="loadPlayer(48);" />
+			<input class="button" type="button" value="显示实时歌词" onclick="loadPlayer(83);" />
+			<input class="button" type="button" value="显示播放列表" onclick="loadPlayer(230);" />
+		</div>
+	</div>
+	<script type="text/javascript" src="<?=$qf_root?>/core/script.php?swfobject"></script>
+	<div id="qfversion"><a href="http://www.phpye.com" target="_blank" title="PHP学院" style="color:#444;">phpYe.QFarm</a></div>
+</div>
+
+<!--QF大窗口模式-->
+<div id="dlBox1_main" class="dlBox_main">
+	<div id="dlBox1_head" class="dlBox_head">
+		<h1>农场牧场</h1>
+		<a onclick="return dlBox1_Hide();" href="#" title="关闭">&nbsp;</a>
+	</div>
+	<div id="dlBox1_body" class="dlBox_body">
+		<iframe id="myfarm_full" name="myfarm_full" src="about:blank" frameborder="0" scrolling="no" width="900px" height="560px"></iframe>
+	</div>
+</div>
+
+<!--QF好友列表-->
+<div id="dlBox2_main" class="dlBox_main">
+	<div id="dlBox2_head" class="dlBox_head">
+		<h1>好友列表</h1>
+		<a onclick="return dlBox2_Hide();" href="#" title="关闭">&nbsp;</a>
+	</div>
+	<div id="dlBox2_body" class="dlBox_body">正在加载好友列表...</div>
+	<input type="button" value="确定" onclick="flowerToFriend();" />
+</div>
+
+<!--QF附加脚本-->
+<script type="text/javascript" charset="utf-8" src="<?=$qf_root?>/core/script.php?squery&dialog&main"></script>
+

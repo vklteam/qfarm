@@ -1,0 +1,39 @@
+<!--{tpl admin/inc_header}-->
+
+<!--{if $itemtype_list}-->
+<table class="list">
+	<tr>
+		<th>装饰品ID</th>
+		<th>装饰品名字</th>
+		<th>装饰品套装</th>
+		<th>使用期限</th>
+		<th>金 币</th>
+		<th>Y 币</th>
+		<th>VIP价</th>
+		<th>经验</th>
+		<th>级别</th>
+		<th>执行操作</th>
+	</tr>
+	<!--{foreach $itemtype_list as $itemtype}-->
+	<tr>
+		<td>{:$itemtype['itemId']}</td>
+		<td>{:$itemtype['itemName']}</td>
+		<td>{:$itemtype['itemDesc']}</td>
+		<td>{:$itemtype['itemValidTime']/(3600*24)}天</td>
+		<td>{:$itemtype['price']}</td>
+		<td>{:$itemtype['FBPrice']}</td>
+		<td>{:$itemtype['YFBPrice']}</td>
+		<td>{:$itemtype['exp']}</td>
+		<td>{:$itemtype['level']}</td>
+		<td>
+			<a href="admin.php?mod=itemtype_edit&id={:$itemtype['itemId']}">编辑</a>
+		</td>
+	</tr>
+	<!--{/foreach}-->
+</table>
+<div id="pages" class="multiPage"></div>
+<!--{else}-->
+<div class="no_hpinfo">暂时没有装饰品信息！</div>
+<!--{/if}-->
+
+<!--{tpl admin/inc_footer}-->

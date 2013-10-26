@@ -1,0 +1,36 @@
+<!--{tpl admin/inc_header}-->
+
+<!--{if $mctoolstype_list}-->
+<table class="list">
+	<tr>
+		<th>道具名字</th>
+		<th>金 币</th>
+		<th>元宝</th>
+		<th>VIP价</th>
+		<th>时间</th>
+		<th>说明</th>
+		<th>启用状态</th>
+		<th>执行操作</th>
+	</tr>
+	<!--{foreach $mctoolstype_list as $key=>$toolstype}-->
+	<tr>
+		<td>{:$toolstype['name']}</td>
+		<td>{:$toolstype['price']}</td>
+		<td>{:$toolstype['qdprice']}</td>
+		<td>{:$toolstype['yqdprice']}</td>
+		<td>{:$toolstype['effect']/3600}小时</td>
+		<td>{:$toolstype['description']}</td>
+		<td>{:$toolstype['saleOut'] ? "关闭" : "开启"}</td>
+		<td>
+			<a href="admin.php?mod=mctoolstype_edit&id={:$key}">编辑</a>
+		</td>
+	</tr>
+	<!--{/foreach}-->
+</table>
+<div id="pages" class="multiPage"></div>
+<!--{else}-->
+<div class="no_hpinfo">暂时没有道具信息！</div>
+<!--{/if}-->
+
+
+<!--{tpl admin/inc_footer}-->

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>农场庄园</title>
+<link type="text/css" rel="stylesheet" href="images/style.css" />
+<link type="text/css" rel="stylesheet" href="images/vip.css" />
+
+<script type="text/javascript" src="script.php?squery&common"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="tabs" class="clearfix">
+		<ul>
+			<!--{php $active[$tab_name] = ' class="active"';}-->
+			<li{:$active['nc']}><a href="nmc.php?type=nc"><span>我的农场</span></a></li>
+			<li{:$active['mc']}><a href="nmc.php?appid=358"><span>我的牧场</span></a></li>
+			<li{:$active['market']}{:$active['market_nc']}><a href="tools.php?mod=market&act=nc"><span>农牧市场</span></a></li>
+			<li{:$active['vip']}><a href="tools.php?mod=vip"><span>VIP 升级</span></a></li>
+			<li{:$active['exchange']}><a href="tools.php?mod=exchange"><span>积分兑换</span></a></li>
+			<li{:$active['setting']}><a href="tools.php?mod=setting"><span>游戏设置</span></a></li>
+			<li{:$active['top']}><a href="tools.php?mod=top"><span>游戏排行</span></a></li>
+			<li{:$active['help']}><a href="tools.php?mod=help"><span>游戏帮助</span></a></li>
+			<!--{if in_array($_QFG['uid'], $_QSC['adminer'])}-->
+			<li{:$active['admin']}><a href="admin.php"><span>管理后台</span></a></li>
+			<!--{/if}-->
+			<li><a onclick="return fullWindow();" href="#"><span>大窗口模式</span></a></li>
+		</ul>
+	</div>
+
+	<!--{tpl inc_info}-->

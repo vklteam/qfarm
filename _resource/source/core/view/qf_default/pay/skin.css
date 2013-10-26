@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+@import url("share.css");
+.dialog_global{border:1px solid #93b3d4;}
+.dialog_head,.dialog_head a,.dialog_head a:hover,.prev,.next,.btn_style{background:url(skin1.png) no-repeat}
+.dialog_head a{background-position:0 -40px;}
+.dialog_head a:hover{background-position:-37px -40px;}
+.prev{background-position:-92px -42px;}
+.next{background-position:-156px -42px;}
+.btn_style{background-position:0 -80px; color:#0B5BA5}/*  |xGv00|9b4dea56bb010d1fbade2a49d813f8c2 */

@@ -1,0 +1,64 @@
+	<!--{subtemplate common/header}-->
+
+<style id="diy_style" type="text/css"></style>
+
+<div id="pt" class="bm cl">
+	<!--{subtemplate common/simplesearchform}-->
+	<div class="z">
+		<a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>
+		<a href="home.php">$_G[setting][navs][4][navname]</a> <em>&rsaquo;</em> 
+		<a>应用</a><em>&rsaquo;</em> 
+		<a href="plugin.php?id=qqfarm:qqfarm">农场庄园</a>
+		<!--{if $_GET['view']=='me'}-->
+		 <em>&rsaquo;</em> <a href="home.php?mod=space&uid=$space[uid]&do=blog&view=me">{$space[username]}{lang somebody_blog}</a>
+		<!--{/if}-->
+	</div>
+</div>
+
+<style id="diy_style" type="text/css">
+	#nv_plugin .wp .ch label { background-position: 100% -150px; color: {LIGHTLINK}; text-shadow: 1px 1px 2px #004FB5; }
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="$qf_root/static/style.css" />
+
+<div id="ct" class="ct2_a wp cl">
+	<div class="appl">
+		<!--{template common/userabout}-->
+	</div>
+	<div class="mn">
+		<h1 class="mt"><img class="vm" src="$qf_root/static/farm.gif" alt="app" />农场庄园</h1>
+		<!--QF主框架区域-->
+		<div id="qfbody">
+			<iframe id="myfarm" name="myfarm" src="$qf_root/core/nmc.php?type=nc" frameborder="0" scrolling="no" width="800px" height="620px"></iframe>
+			<div id="qfplayer">
+				<div id="qfplayer_main"></div>
+				<div id="qfplayer_ctrl">
+					<input class="button" type="button" value="关闭播放器" onclick="loadPlayer(0);" />
+					<input class="button" type="button" value="迷你版播放器" onclick="loadPlayer(48);" />
+					<input class="button" type="button" value="显示实时歌词" onclick="loadPlayer(83);" />
+					<input class="button" type="button" value="显示播放列表" onclick="loadPlayer(230);" />
+				</div>
+			</div>
+			<script type="text/javascript" src="$qf_root/core/script.php?swfobject"></script>
+			<div id="qfversion"><a href="http://www.phpye.com" target="_blank" title="PHP学院" style="color:#444;">phpYe.QFarm</a></div>
+		</div>
+		<div id="feed_div">
+			<p class="emp">还没有相关动态</p>
+		</div>
+	</div>
+</div>
+
+<!--QF大窗口模式-->
+<div id="dlBox1_main" class="dlBox_main">
+	<div id="dlBox1_head" class="dlBox_head">
+		<h1>农场牧场</h1>
+		<a onclick="return dlBox1_Hide();" href="#" title="关闭">&nbsp;</a>
+	</div>
+	<div id="dlBox1_body" class="dlBox_body">
+		<iframe id="myfarm_full" name="myfarm_full" src="about:blank" frameborder="0" scrolling="no" width="900px" height="560px"></iframe>
+	</div>
+</div>
+<!--QF附加脚本-->
+<script type="text/javascript" charset="utf-8" src="$qf_root/core/script.php?json&squery&dialog&main"></script>
+{subtemplate common/footer}

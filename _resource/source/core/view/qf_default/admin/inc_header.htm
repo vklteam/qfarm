@@ -1,0 +1,21 @@
+<!--{tpl inc_header}-->
+
+<div id="main">
+
+	<div class="menu">
+		<!--{php $active[$mod_name] = ' class="active"';}-->
+		<a{:$active[home]} href="admin.php?mod=home">管理首页</a>
+		<a{:$active[quick]} href="admin.php?mod=quick">快捷操作</a>
+		<a{:$active[system]} href="admin.php?mod=system">系统配置</a>
+		<a{:$active[notice]} href="admin.php?mod=notice">公告管理</a>
+		<a{:$active[user_list]} href="admin.php?mod=user_list">用户列表</a>
+		<a{:$active[cropstype_list]} href="admin.php?mod=cropstype_list">农场作物</a>
+		<a{:$active[fishtype_list]} href="admin.php?mod=fishtype_list">农场鱼苗</a>
+		<a{:$active[itemtype_list]} href="admin.php?mod=itemtype_list">农场装饰</a>
+		<a{:$active[toolstype_list]} href="admin.php?mod=toolstype_list">农场道具</a>
+		<a{:$active[animaltype_list]} href="admin.php?mod=animaltype_list">牧场动物</a>
+		<a{:$active[toolstype_list]} href="admin.php?mod=mctoolstype_list">牧场道具</a>
+		<a{:$active[syncdata]} href="admin.php?mod=syncdata">同步数据</a>
+	</div>
+
+	<div id="main_admin">

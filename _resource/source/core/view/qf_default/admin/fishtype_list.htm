@@ -1,0 +1,37 @@
+<!--{tpl admin/inc_header}-->
+
+<!--{if $farm_list}-->
+<table class="list">
+	<tr>
+		<th>Id</th>
+		<th>名字</th>
+		<th>收成经验</th>
+		<th>预计收入</th>
+		<th>成长时间</th>
+		<th>产量</th>
+		<th>鱼苗价格</th>
+		<th>果实售价</th>
+		<th>执行操作</th>
+	</tr>
+	<!--{foreach $farm_list as $farmlist}-->
+	<tr>
+		<td>{:$farmlist['id']}</td>
+		<td>{:$farmlist['crop_name']}</td>
+		<td>{:$farmlist['exp']}</td>
+		<td>{:$farmlist['lock_money']}</td>
+		<td>{:$farmlist['cycle']['2']/3600}小时</td>
+		<td>{:$farmlist['output']}</td>
+		<td>{:$farmlist['price']}</td>
+		<td>{:$farmlist['sale']}</td>
+		<td>
+			<a href="admin.php?mod=fishtype_edit&id={:$farmlist['id']}">编辑</a>
+		</td>
+	</tr>
+	<!--{/foreach}-->
+</table>
+<div id="pages" class="multiPage"></div>
+<!--{else}-->
+<div class="no_hpinfo">暂时没有作物信息！</div>
+<!--{/if}-->
+
+<!--{tpl admin/inc_footer}-->

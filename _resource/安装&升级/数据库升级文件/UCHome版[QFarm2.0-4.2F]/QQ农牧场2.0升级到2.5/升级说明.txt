@@ -1,0 +1,7 @@
+
+1、牧场新装饰updata.php
+
+给旧牧场升级用。更新后房子的级别为3级
+
+2、还有要新建牧场日志表happyfarm_mclogs
+以前没有建的要加uchome_happyfarm_mclogs.sql
