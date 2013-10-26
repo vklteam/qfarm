@@ -1,0 +1,6 @@
+Message: MySQL Query Error 
+    URI: /qfarm/0.1/_release/core/nmc.php?type=nc 
+    SQL: select extcredits1 FROM common_member_count where uid=100003339403126 
+  Errno: 1146 
+  Error: Table 'qqfarm.common_member_count' doesn't exist 
+ 

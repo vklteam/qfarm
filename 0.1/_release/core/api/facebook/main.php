@@ -59,24 +59,23 @@ function qf_getUserName($uid = 0, $update = false) {
 	$uid = $uid > 0 ? $uid : $_QFG['uid'];
 	//先查询QFarm数据库
 	if(!$update) {
-		$member = $_QFG['db']->fetchOne("SELECT regname,username FROM app_qqfarm_user WHERE uid='$uid'");
-		$uname = $member['username'] ? $member['username'] : $member['regname'];
+		$member = $_QFG['db']->fetchOne("SELECT regname FROM app_qqfarm_user WHERE uid='".$_SESSION['user_profile']['id']."'");
+		$uname = $member['regname'];
 	}
+	
 	//再查询宿主应用数据库
 	if(!$uname) {
-		$member['regname'] = $_QFG['db']->result("SELECT username FROM pap_tbpre_common_member WHERE uid='$uid'");
-		$member['username'] = $_QFG['db']->result("SELECT realname FROM pap_tbpre_common_member_profile where uid='$uid'");
-		$uname = $member['username'] ? $member['username'] : $member['regname'];
-		//$uname || exit('非法玩家');
+		$member['regname'] = $_SESSION['user_profile']['name'];
+		$member['username'] = $_SESSION['user_profile']['id'].'@facebook.com';
+		$uname = $member['regname'];
 		$checkUid = $_QFG['db']->result("SELECT uid FROM app_qqfarm_user where uid='$uid'");
 		if($checkUid) {
 			//更新用户资料
 			$_QFG['db']->query("UPDATE app_qqfarm_user SET username='{$uname}',regname='{$member['regname']}' where uid='$uid'");
-		}
-		else {
+		} else {
 			//初始化新用户
 			$_INIT = qf_getCache('_INIT');
-			$_QFG['db']->query("INSERT INTO app_qqfarm_user(uid,username,regname,money,yb,pf) VALUES({$uid},'{$uname}','{$member['regname']}',{$_INIT['money']},{$_INIT['yb']},0)");
+			$_QFG['db']->query("INSERT INTO app_qqfarm_user(uid,username,regname,money,yb,pf) VALUES({$uid},'{$member['username']}','{$member['regname']}',{$_INIT['money']},{$_INIT['yb']},0)");
 		}
 	}
 	return addslashes($uname);
@@ -86,10 +85,10 @@ function qf_getUserName($uid = 0, $update = false) {
 function qf_userCredit($uid = 0, $credit = null) {
 	global $_QSC, $_QFG;
 	$uid = $uid > 0 ? $uid : $_QFG['uid'];
+	return '';
 	if($credit === null) {//获取积分
 		return (int)$_QFG['db']->result("select {$_QSC['creditType']} FROM pap_tbpre_common_member_count where uid={$uid}");
-	}
-	else {//修改积分
+	} else {//修改积分
 		return $_QFG['db']->query("UPDATE pap_tbpre_common_member_count SET {$_QSC['creditType']}={$_QSC['creditType']}{$credit} where uid={$uid}");
 	}
 }
@@ -120,18 +119,11 @@ function qf_addFeed($type) {
 //检查是否登录
 function qf_checkauth() {
 	global $_QSC, $_QFG;
-	
-	if(isset($_SESSION['user_info']) && isset($_SESSION['user_info']->user_name)) {
-		@list($pwd, $uid) = explode("\t", qf_authcode($auth, 'DECODE'));
-		if($uid > 0) {
-			if($_QFG['db']->result("SELECT password FROM pap_tbpre_common_member WHERE uid='$uid'") == $pwd) {
-				$_QFG['uid'] = (int)$uid;
-				$update = $_COOKIE['update_'.$_QFG['uid']] ? 1 : 0;
-				$_QFG['uname'] = qf_getUserName($_QFG['uid'], $update);
-				setcookie('update_'.$_QFG['uid'], 'true', time()+86400);
-				return '';//已登陆
-			}
-		}
+	if(isset($_SESSION['user_profile']) && isset($_SESSION['user_profile']['id'])) {
+		$_QFG['uid'] = $_SESSION['user_profile']['id'];
+		$_QFG['uname'] = qf_getUserName($_QFG['uid'], 0);
+		setcookie('update_'.$_QFG['uid'], 'true', time()+86400);
+		return '';//已登陆
 	}
 	return '请先登录.';//未登录
 }
@@ -228,6 +220,7 @@ function updatetable($tablename, $setsqlarr, $wheresqlarr, $silent = 0) {
 //事件发布
 function feed_add($icon, $title_template = '', $title_data = array(), $body_template = '', $body_data = array(), $body_general = '', $images = array(), $image_links = array(), $target_ids = '', $friend = '', $appid = '', $returnid = 0) {
 	global $_QFG, $_QSC;
+	return 0;/*
 	if(empty($appid)) {
 		$appid = is_numeric($icon) ? 0 : $_QSC['UC_APPID'];
 	}
@@ -251,7 +244,7 @@ function feed_add($icon, $title_template = '', $title_data = array(), $body_temp
 	} else {
 		inserttable('home_feed', $feedarr);
 		return 1;
-	}
+	}*/
 }
 
 ?>

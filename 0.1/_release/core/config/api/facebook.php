@@ -5,7 +5,7 @@ $_config || $_config = $GLOBALS['_config'];
 
 if(!$_config || !defined('UC_API')) {
 	header('Content-Type:text/html; charset=utf-8');
-	die('无法加载必要的Discuz!X配置文件.');
+	//die('无法加载必要的Discuz!X配置文件.');
 }
 
 //添加UCH创始人到管理员列表

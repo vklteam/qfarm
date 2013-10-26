@@ -2,7 +2,8 @@
 //公共加载项
 //检查登录状态
 
-@error_reporting(0);
+//@error_reporting(0);
+@session_start();
 define('FARM_SET', 1); //内部标示符,请勿修改
 define('FARM_DEBUG', 3); //调试模式[=0:关闭|>0:记录MySQL错误|=2:记录PHP错误]
 define('FARM_VERSION', '7.0 Final Build 20120905.1700'); //系统版本,请勿修改
