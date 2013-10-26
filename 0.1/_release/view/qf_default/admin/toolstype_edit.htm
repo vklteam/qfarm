@@ -1,0 +1,47 @@
+<!--{tpl admin/inc_header}-->
+
+<form id="myform" onsubmit="return submits();">
+	<table class="edit">
+		<tr>
+			<td width="80px">道具名字</td>
+			<td><input type="text" name="tName" value="{:$toolstype_list['tName']}"/></td>
+		</tr>
+		<tr>
+			<td width="80px">金 币</td>
+			<td><input type="text" name="price" value="{:$toolstype_list['price']}" /></td>
+		</tr>
+		<tr>
+			<td width="80px">Y 币</td>
+			<td><input type="text" name="FBPrice" value="{:$toolstype_list['FBPrice']}" /></td>
+		</tr>
+		<tr>
+			<td width="80px">VIP价</td>
+			<td><input type="text" name="YFBPrice" value="{:$toolstype_list['YFBPrice']}" /></td>
+		</tr>
+		<tr>
+			<td width="80px">时间</td>
+			<td><input type="text" name="effect" value="{:$toolstype_list['effect']}" /></td>
+		</tr>
+		<tr>
+			<td width="80px">说明</td>
+			<td><textarea rows='5' cols='16'  name="depict" >{:$toolstype_list['depict']}</textarea></td>
+		</tr>
+		<tr>
+			<td width="80px">启用</td>
+			<td>
+					<input type='radio'  name="saleOut" value="false" {:$toolstype_list['saleOut'] ? "" : "checked='checked'"}/>开启 
+					<input type='radio'  name="saleOut" value="true" {:$toolstype_list['saleOut']  ? "checked='checked'" : ""}/>关闭 
+			</td>
+		</tr>
+	</table>
+	<input type="submit" value="提 交" /><span id="state"></span>
+</form>
+
+<script type="text/javascript">
+	function submits(inputId) {
+		request('admin.php?mod=toolstype_edit&submit=1&id={:$id}', 'state', $.getForm('#myform', 1));
+		return false;
+	}
+</script>
+
+<!--{tpl admin/inc_footer}-->

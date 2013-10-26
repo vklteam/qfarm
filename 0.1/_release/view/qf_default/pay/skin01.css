@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+@import url("share.css");
+.dialog_global{border:1px solid #93b3d4;}
+.dialog_head,.dialog_head a,.dialog_head a:hover,.prev,.next,.btn_style,.btn_style4{background:url(skin1.png) no-repeat}
+.dialog_head a{background-position:0 -40px;}
+.dialog_head a:hover{background-position:-37px -40px;}
+.prev{background-position:-92px -42px;}
+.next{background-position:-156px -42px;}
+.btn_style{background-position:0 -80px; color:#fff}
+.prop_info img,.check img{padding:1px;border:1px solid #93b3d4;}
+.btn_style4{background-position:-77px -80px; color:#0B5BA5}/*  |xGv00|6c7ae0042b86108ca43237e8ff51f99e */

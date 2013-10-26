@@ -1,0 +1,64 @@
+<!--{tpl admin/inc_header}-->
+
+<table class="list">
+	<tr>
+	<th colspan="2">请输入要获取的作物ID号以及作物等级</th>
+	</tr>
+    <!-- <tr>
+	<td><a href="admin.php?mod=syncdata&sync=swf">点击同步module主要SWF文件</a></td>
+	<td>选择远程数据列表</td>
+	</tr> -->
+    <tr>
+	<td nowrap>
+    填入新作物ID号 
+    <input id="nc_crop"> 
+    <input type="button" onClick="submits('nc_crop')" value="提交" />
+    </td>
+    <td>
+    <select id="ncsel" onChange="$('#nc_crop').value=$('#ncsel').options.value" >
+    <!--{foreach $nID as $key=>$vn}-->
+    <option value="{:$key}">{:$vn}</option>
+    <!--{/foreach}-->
+    </select>
+    <input type="button" onClick="submitss(1)" value="获取最新" />
+    </td>
+	</tr>
+	<tr>
+	<td>填入新动物ID号 
+    <input id="mc_animal"> 
+    <input type="button" onClick="submits('mc_animal')" value="提交" />
+    </td>
+    <td>
+    <select id="mcsel" onChange="$('#mc_animal').value=$('#mcsel').options.value" >
+    <!--{foreach $mID as $key=>$vm}-->
+    <option value="{:$key}">{:$vm}</option>
+    <!--{/foreach}-->
+    </select>
+    <input type="button" onClick="submitss(2)" value="获取最新" />
+    </td>
+	<tr>
+	<td>农场装扮始ID号 <input id="nc_item"> <input type="button" onClick="submits('nc_item')" value="提交" /></td>
+    <td>农场装扮四个ID为1组,只需要输入1个ID号,获取ID号:登录之后<a href="http://farm.qzone.qq.com/cgi-bin/cgi_farm_shop?mod=item&act=shop" target="_blank">点击这里</a>,找套装的第1个itemId</td>
+	</tr>
+	<tr>
+	<td>牧场装扮始ID号 <input id="mc_item"> <input type="button" onClick="submits('mc_item')" value="提交" /></td>
+    <td>牧场装扮只有1个ID,获取ID号:登录之后<a href="http://mc.qzone.qq.com/cgi-bin/cgi_get_items" target="_blank">点击这里</a>,寻找itemId</td>
+	</tr>
+    <tr>
+    <td></td>
+    <td><span id="stat"></span></td>
+    </tr>
+</table>
+<script type="text/javascript">
+	function submitss(inputId){
+		request('admin.php?mod=syncdata&xmlid='+inputId, 'stat');
+		return false;
+	}
+	function submits(type) {
+		var sid = $('#'+type).value || 0;
+		if(sid) {
+			window.location='admin.php?mod=syncdata&sync='+type+'&sid='+sid;
+		}
+	}
+</script>
+<!--{tpl admin/inc_footer}-->

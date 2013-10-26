@@ -1,0 +1,112 @@
+<!--{tpl inc_header}-->
+<div id="main_nmc"><div id="flashMain"></div></div> 
+<!--{tpl inc_footer}-->
+<script type="text/javascript">
+	var APP_ID = 353; //当前APPID
+	var SPEED_STAT_FLAG = [7721, 5, parent.QZONE ? 1 : 3];
+	document.write([
+		'<script type="text/javascript" src="script.php?conf&qzfl_for_qzone&c1"><\/script>',
+	].join(''));
+</script>
+<script type="text/javascript">
+	//speedTimeStamp[2] = new Date();
+	var NO_FLASH = 0; //如果不显示flash,请设置为1
+	var HIGH_LIGHT = 1; //当前高亮的标签
+	C.config.setFullFlag(false); //设置当前是否为大窗口
+	C.config.setTitle('QQ农场'); //设置标题
+
+	var FLASH_VARS = {
+		"hmv2level":"0",
+		"hmv2CloseTime":"1261929600",
+		"batchStealHour":"5-10,12-13,19-22",
+		"cacheSeed":"293",
+		"buyToolHour":"0-24",
+		"buyToolTips":"最近化肥使用量激增导致供应紧张，目前暂不能购买。",
+		"healthModeTime":"00:00 - 06:00",
+		"reqYellowlevel":"2",
+		"ShopToolLink":"",
+		"ShopHeadLink":"",
+		"filterUrl":"http://qbar.qq.com/application/r/?839782",
+		"noFoodTips":"最近狗粮原材料供应紧张，目前暂不能购买。",
+		"missionTitle":"中秋国庆时，欢聚农牧场！",
+		"missionPrepareTime":"2010-9-8 02:00:00",
+		"missionAutumnBeginTime":"2010-9-20 00:00:00",
+		"missionNationalBeginTime":"2010-9-26 00:00:00",
+		"missionEndTime":"2010-10-9 00:10:00",
+		"fstTimeZq":"2010-9-20 10:00:00",
+		"sndTimeZq":"2010-9-20 12:00:00",
+		"trdTimeZq":"2010-9-20 14:00:00",
+		"fourthTimeZq":"2010-9-20 16:00:00",
+		"fifthTimeZq":"2010-9-20 18:00:00",
+		"fstTimeGq":"2010-9-26 10:00:00",
+		"sndTimeGq":"2010-9-26 12:00:00",
+		"trdTimeGq":"2010-9-26 14:00:00",
+		"fourthTimeGq":"2010-9-26 16:00:00",
+		"fifthTimeGq":"2010-9-26 18:00:00",
+		"missionPrepareHtml":"",
+		"config_url_qz":"",
+		"config_url_xy":"",
+		"miniFactoryText":"",
+		"snowslide":"3",
+		"uinMode":"1",
+		"flowerDayTips":"内测期间开放给黄钻以及农场15级以上（含15级）用户，每天每人可赠送一束鲜花哦！",
+		"flowerYDLevel":"1",
+		"qShowAtFarm":"qShowAtFarm.swf",
+		"qShowLevel":"0",
+		"restaurantConfig":"",
+		"mill":"appid=376",
+		"millLimitYDLevel":"1",
+		"TVShow":"",
+		"buyTin":"1",
+		"qixiPrepareTime":"2010-9-19 00:00:00",
+		"qixiBeginTime":"2010-9-19 23:35:00",
+		"qixiEndTime":"2010-9-26 00:05:00",
+		"diyLimitYDLevel":"4",
+		"domian_qz":"farm.qzone",
+		"domian_xy":"farm.xiaoyou",
+		"loadingUrl":"module/loading2_v_3.swf",
+		"friend_list_mod_qz":"1000",
+		"friend_list_mod_xy":"1000",
+		"friend_list_qz":"",
+		"friend_list_xy":"",
+		"friend_list_tips":"系统繁忙，请稍后再试！",
+		"steal_mod":"1000",
+		"steal":"",
+		"steal_tips":"为保证更加稳定的服务，系统正在对部分号码进行数据维护。在此时间段系统将暂停您的 “摘取”操作以保护您的数据安全。期间好友也不能摘取您的作物，其他操作正常！谢谢您的支持！",
+		"steal_tips_other":"为保证更加稳定的服务，系统正在对部分号码进行数据维护。在此号段的农场在维护期间将停止摘取以保护数据安全。期间好友也不能摘取您的作物，其他操作正常！谢谢您的支持！",
+		"steal_tips_2":"系统维护中，暂时不能摘取，请稍后再试。",
+		"friend_list_tips_2":"系统维护中，暂时不能查看好友信息，请稍后再试。",
+		"index_tips":"系统维护中，请耐心等待。",
+		"enter_into_mod":"1000",
+		"enter_into":"",
+		"redirect_url_qz":"",
+		"redirect_url_xy":"",
+		"config_url":"{:$xml}load_main_v_{:FARM_DAY}.xml",
+		"config_data":"{:$xml}data_zh_CN_v_{:FARM_DAY}.xml",
+		"config_addon":"{:$xml}addon_v_{:FARM_DAY}.xml",
+		"useflag":"11111111",
+		"usercheck":"7da443769f0243036e1f92b269f93a72",
+		"app_status_bitmap":"000000000000000f",
+		 "app_request_num":"0"
+	};
+	FLASH_VARS.mode = SwfAppLib.platform.isQzone ? 1 : 2;
+	FLASH_VARS.pageDomain = document.domain;
+	
+	//@dante 部分需要canvas cgi输出
+	var FLASH_PARAMS = {
+		"id":"swfAppObject",
+		"width":"100%",
+		"height":"560",
+		"menu":"false",
+		"scale":"noScale",
+		"allowFullscreen":"true",
+		"allowScriptAccess":"always",
+		"bgcolor":"#FFFFFF",
+		"wmode":"opaque",
+		"src":"{:$nc_src}"
+	};
+	window.SPECIAL && SPECIAL.flash(FLASH_VARS, FLASH_PARAMS);
+	FLASH_PARAMS.flashvars = C.util.convertFlashVars(FLASH_VARS);
+	var MINI_PORTAL_VER = '20110802';
+	window.init && init();
+</script>

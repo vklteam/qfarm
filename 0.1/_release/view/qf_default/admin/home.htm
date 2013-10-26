@@ -1,0 +1,40 @@
+<!--{tpl admin/inc_header}-->
+<div>
+	<strong>农场基本信息</strong>
+	<ul>
+		<li>农场用户 : <b> <FONT COLOR="#FF0000">{:$nccount}</FONT> </b> 人 || 牧场用户 : <b> <FONT COLOR="#FF0000">{:$mccount}</FONT> </b> 人 || 7天访问 : <b> <FONT COLOR="#FF0000">{:$tcount}</FONT> </b> 人 || 30天访问 : <b> <FONT COLOR="#FF0000">{:$rcount}</FONT> </b> 人</li>
+		<li>农场种子 : <b> <FONT COLOR="#FF0000">{:count($cropstype)}</FONT> </b> 种 || 农场鱼苗 : <b> <FONT COLOR="#FF0000">{:count($fishtype)}</FONT> </b> 种  || 农场装饰 : <b> <FONT COLOR="#FF0000">{:count($nc_itemtype)/4}</FONT> </b> 套 || 农场道具 : <b> <FONT COLOR="#FF0000">{:count($nc_toolstype)}</FONT> </b> 样</li>
+		<li>牧场动物 : <b> <FONT COLOR="#FF0000">{:count($animaltype)}</FONT> </b> 种 || 牧场装饰 : <b> <FONT COLOR="#FF0000">{:count($mc_itemtype)}</FONT> </b> 套 || 牧场道具 : <b> <FONT COLOR="#FF0000">{:count($mc_toolstype)}</FONT> </b> 样</li>
+	<ul>
+<div>
+<div><li></li></div>
+<div>
+	<strong>服务器参数</strong>
+	<ul>
+		<!--{foreach $farmTest as $key=>$value}-->
+		<!--{php is_bool($value[0]) && $value[0] =  $value[0] ? '支持' : '不支持';}-->
+		<!--{php $value[1] =  $value[1] ? '<span>'.$value[1].'</span>' : '';}-->
+		<li> {:$key} : {:$value[0]} {:$value[1]} </li>
+		<!--{/foreach}-->
+	<ul>
+<div>
+<script type="text/javascript">
+	var qf_stable_version, qf_development_version;
+	var JsURL = "http://www.phpye.com/version.js?v" + Math.random();
+	document.write(unescape("%3Cscript src='" + JsURL + "' type='text/javascript'%3E%3C/script%3E"));
+	function check_version() {
+		try {
+			var msg = '';
+			if(qf_stable_version) {
+				msg += '当前稳定版:' + qf_stable_version + '\r\n';
+			}
+			if(qf_development_version) {
+				msg += '当前开发版:' + qf_development_version + '\r\n';
+			}
+			alert(msg || '版本号获取异常');
+		} catch(e) {
+			alert('未知错误');
+		}
+	}
+</script>
+<!--{tpl admin/inc_footer}-->

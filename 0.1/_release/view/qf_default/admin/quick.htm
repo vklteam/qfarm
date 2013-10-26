@@ -1,0 +1,104 @@
+<!--{tpl admin/inc_header}-->
+
+<div class="clearfix">
+	<div style="float:left;margin-right:15px;">
+		<table>
+		<tr><th colspan="2">快捷操作</th></tr>
+		<tr>
+			<td><span style="color:red">清理DATA全部缓存(此操作将重置后台设置项)</span></td>
+			<td><input type="button" onclick='request("admin.php?mod=quick&go=cache_clean", "cache_clean_msg");' value="确定" /><span id="cache_clean_msg"></span></td>
+		</tr>
+		<tr>
+			<td><span style="color:red">清理DATA农场缓存(此操作将重置农场设置项)</span></td>
+			<td><input type="button" onclick='request("admin.php?mod=quick&go=cache_clean1", "cache_clean1_msg");' value="确定" /><span id="cache_clean1_msg"></span></td>
+		</tr>
+		<tr>
+			<td><span style="color:red">清理DATA牧场缓存(此操作将重置牧场设置项)</span></td>
+			<td><input type="button" onclick='request("admin.php?mod=quick&go=cache_clean2", "cache_clean2_msg");' value="确定" /><span id="cache_clean2_msg"></span></td>
+		</tr>
+		<tr>
+			<td><span style="color:red">清理DATA风格缓存(此操作将重置风格设置项)</span></td>
+			<td><input type="button" onclick='request("admin.php?mod=quick&go=cache_clean3", "cache_clean3_msg");' value="确定" /><span id="cache_clean3_msg"></span></td>
+		</tr>
+		<tr>
+		<td>清理消费日志</td>
+			<td><input type="button" onclick='request("admin.php?mod=quick&go=exchange_clean", "exchange_clean_msg");' value="确定" /><span id="exchange_clean_msg"></span></td>
+		</tr>
+		<tr>
+			<td>清理牧场蚊子和便便</td>
+			<td><input type="button" onclick='request("admin.php?mod=quick&go=mc_clean", "mc_clean_msg");' value="确定"/><span id="mc_clean_msg"></span></td>
+		</tr>
+		<tr>
+			<td>初始化农场和牧场成果</td>
+			<td><input type="button" onclick='request("admin.php?mod=quick&go=repertory_clean", "repertory_clean_msg");' value="确定" /><span id="repertory_clean_msg"></span></td>
+		</tr>
+		<tr>
+			<td>修复农场参数</td>
+			<td><input type="button" onclick='request("admin.php?mod=quick&go=farmland", "farmland_msg");' value="确定" /><span id="farmland_msg"></span></td>
+		</tr>
+		<tr>
+			<td>修复健康、VIP</td>
+			<td><input type="button" onclick='request("admin.php?mod=quick&go=healthmode", "healthmode_msg");' value="确定" /><span id="healthmode_msg"></span></td>
+		</tr>
+		<tr>
+			<td colspan="2">输入用户UID：<input type="text" id="user_id" style="width:30px;"/> <input type="button" onclick='searchUser("user_id");' value="查询" /></td>
+		</tr>
+		<tr>
+			<td colspan="2">增加所有用户元宝：<input type="text" id='add_yb' style="width:104px;"/> 
+				<input type="button" onclick='request("admin.php?mod=quick&go=add_yb&yb="+$("#add_yb").value, "add_money_msg");' value="确定" />
+				<span id="add_yb_msg"></span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">增加所有用户金币：<input type="text" id='add_money' style="width:104px;"/> 
+				<input type="button" onclick='request("admin.php?mod=quick&go=add_money&money="+$("#add_money").value, "add_money_msg");' value="确定" />
+				<span id="add_money_msg"></span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">增加所有用户经验：
+				农场<input type="text" id='add_exp_nc' style="width:30px;"/> 
+				牧场<input type="text" id='add_exp_mc' style="width:30px;"/>
+				<input type="button" onclick='request("admin.php?mod=quick&go=add_exp&nc="+$("#add_exp_nc").value+"&mc="+$("#add_exp_mc").value, "add_exp_msg");' value="确定" />
+				<span id="add_exp_msg"></span>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<div>
+		<!--{tpl admin/quick_gfit}-->
+	</div>
+</div>
+<div class="clearfix">
+	<table>
+	<tr><th colspan="2">留言信息管理</th></tr>
+	<tr>
+		<td>使用管理员名</td>
+		<td><input type="text" id='sendmsg_name' style="width:90px;"/></td>
+	</tr>
+	<tr>
+		<td>给所有用户留言</td>
+		<td><textarea id="sendmsg_text" style="width:300px;height:100px;"></textarea></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="button" onclick='request("admin.php?mod=quick&go=sendmsg&name="+$("#sendmsg_name").value, "delmsg_state", "msg="+$("#sendmsg_text").value);' value="确定" /></td>
+	</tr>
+	<tr>
+		<td>删除管理员留言</td>
+		<td><input type="text" id='delmsg_name' style="width:90px;"/> <input type="button" onclick='request("admin.php?mod=quick&go=delmsg&name="+$("#delmsg_name").value, "delmsg_state");' value="确定" /><span id="delmsg_state"></span></td>
+	</tr>
+	</table>
+</div>
+
+<script type="text/javascript">
+	function searchUser(inputId) {
+		var uid = parseInt($('#'+inputId).value);
+		if(uid > 0) {
+			var url = "admin.php?mod=user_edit&id=" + uid;
+			location.assign(url);
+		}
+	}
+</script>
+
+<!--{tpl admin/inc_footer}-->

@@ -1,0 +1,149 @@
+<form id="sendgift_form" onsubmit="return sendgift_submit();">
+	<table>
+	<tr><th colspan="2">给所有用户留言并赠送礼物</th></tr>
+	<tr>
+		<td>赠送农场产品</td>
+		<td>
+			<select name='add_ncfrid'>
+			<option value="">==请选择==</option>
+			<!--{foreach $cropstype as $key=>$value}-->
+			<option value="{:$key}">{:$value['cName']}</option>
+			<!--{/foreach}-->
+			</select>数量：<input type="text" name='add_ncfrnum' style="width:50px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td>赠送农场种子</td>
+		<td>
+			<select name='add_ncpaid'>
+			<option value="">==请选择==</option>
+			<!--{foreach $cropstype as $key=>$value}-->
+			<option value="{:$key}">{:$value['cName']}</option>
+			<!--{/foreach}-->
+			</select>数量：<input type="text" name='add_ncpanum' style="width:50px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td>赠送鱼塘产品</td>
+		<td>
+			<select name='add_ncytid'>
+			<option value="">==请选择==</option>
+			<!--{foreach $fishtype as $key=>$value}-->
+			<option value="{:$key}">{:$value['crop_name']}</option>
+			<!--{/foreach}-->
+			</select>数量：<input type="text" name='add_ncytnum' style="width:50px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td>赠送农场鱼苗</td>
+		<td>
+			<select name='add_ncfiid'>
+			<option value="">==请选择==</option>
+			<!--{foreach $fishtype as $key=>$value}-->
+			<option value="{:$key}">{:$value['crop_name']}</option>
+			<!--{/foreach}-->
+			</select>数量：<input type="text" name='add_ncfinum' style="width:50px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td>赠送材料水晶</td>
+		<td>
+			<select name='add_mcclid'>
+			<option value="">==请选择==</option>
+			<!--{foreach $crystalinf as $key=>$value}-->
+			<option value="{:$key}">{:$value['name']}</option>
+			<!--{/foreach}-->
+			</select>数量：<input type="text" name='add_mcclnum' style="width:50px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td>赠送农场道具</td>
+		<td>
+			<select name='add_nctlid'>
+			<option value="">==请选择==</option>
+			<!--{foreach $toolstype as $key=>$value}-->
+			<!--{if !in_array($key,array(40001,40002,40003))}-->
+			<option value="{:$key}">{:$value['tName']}</option>
+			<!--{/if}-->
+			<!--{/foreach}-->
+			</select>数量：<input type="text" name='add_ncfhnum' style="width:50px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td>赠送农场装饰</td>
+		<td>
+			<select name='add_nctlid2'>
+			<option value="">==请选择==</option>
+			<!--{foreach $nc_itemtype as $key=>$value}-->
+			<option value="{:$key}">{:$value['itemName']}</option>
+			<!--{/foreach}-->
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>赠送牧场幼崽</td>
+		<td>
+			<select name='add_mcfrid'><option value="">==请选择==</option>
+			<!--{foreach $animaltype as $key=>$value}-->
+			<option value="{:$key+10000}">{:$value['cName']}</option>
+			<!--{/foreach}-->
+			</select>数量：<input type="text" name='add_mcfrnum' style="width:50px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td>赠送牧场产品</td>
+		<td>
+			<select name='add_mccpid'><option value="">==请选择==</option>
+			<!--{foreach $animaltype as $key=>$value}-->
+			<option value="{:$key+10000}">{:$value['bName']}</option>
+			<!--{/foreach}-->
+			</select>数量：<input type="text" name='add_mccpnum' style="width:50px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td>赠送牧场整品</td>
+		<td>
+			<select name='add_mczpid'><option value="">==请选择==</option>
+			<!--{foreach $animaltype as $key=>$value}-->
+			<option value="{:$key+10000}">{:$value['cName']}</option>
+			<!--{/foreach}-->
+			</select>数量：<input type="text" name='add_mczpnum' style="width:50px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td>赠送牧场罐头</td>
+		<td>
+			<select name='add_toolsid'><option value="">==请选择==</option>
+			<option value="1">普通罐头</option>
+			<option value="2">高速罐头</option>
+			<option value="3">极速罐头</option>
+			<option value="4">迷你罐头</option>
+			</select>数量：<input type="text" name='add_tools' style="width:50px;"/>
+		</td>
+	</tr>
+
+	<tr>
+		<td>赠送牧场装饰</td>
+		<td>
+			<select name='add_mctlid'>
+			<option value="">==请选择==</option>
+			<!--{foreach $mc_itemtype as $key=>$value}-->
+			<option value="{:$key}">{:$value['itemName']}</option>
+			<!--{/foreach}-->
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit" value="提 交" /><span id="sendgift_state"></span></td>
+	</tr>
+	</table>
+</form>
+
+<script type="text/javascript">
+	function sendgift_submit() {
+		var sendgift_data = $.getForm('#sendgift_form', 1);
+		request('admin.php?mod=quick&go=sendgift', 'sendgift_state', sendgift_data);
+		return false;
+	}
+</script>

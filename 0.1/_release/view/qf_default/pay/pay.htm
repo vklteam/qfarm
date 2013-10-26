@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>购买</title>
+        <link href="view/qf_default/pay/skin.css" rel="stylesheet" type="text/css" />
+        <link href="view/qf_default/pay/skin01.css" rel="stylesheet" type="text/css" />
+
+    </head>
+    <body>
+		<!--支付确认-->
+		 <div class="dialog_content" id="step1" {if $show != 1}style="display:none;"{/if}>
+            <div class="tips check">
+                <div class="about_word">
+                    <p><img src="{:$pic}"   onload="this.height>118?this.height=118:0" /></p>
+                   <h6>您共需支付&nbsp;<span class="tx_em" tempid="good_cost">{:$buy_fb}</span>&nbsp;<span tempid="unit">元宝</span></h6> 
+                   <h4 class="guild" style="display:block;" id="tips2">{:$prompt}</h4>
+                    <p id="d_hz"></p>
+                 </div>
+                <div class="about_btn btn_s">
+                   <input type="button" value="确定" class="btn_style" onclick="javascript:document.location.href='pay.php?app={:$app}&go_pay=1&ai={:$ai}&itemId={:$itemId}&itemNum={:$itemNum}&itemType={:$itemType}&payType={:$payType}&shopType={:$shopType}&vip={:$vip}&buy_fb={:$buy_fb}'" />
+                </div>
+            </div>
+    	</div>
+		
+		<!--错误-->
+		<div class="dialog_content" {if $show != 0}style="display:none;"{/if} id="error">
+            <div class="tips">
+                <div class="about_word">
+                    <span class="about_word_warn"></span>
+                    <h5>出错啦！</h5>
+					<h4 class="guild" style="display:block;" id="tips2">{:$prompt}</h4>
+                    <p></p>
+                </div>
+           </div>
+		</div>
+		<!--支付确认-->
+		 <div class="dialog_content" id="step1" {if $show != 2}style="display:none;"{/if}>
+			<div class="tips">
+				<div class="about_word">
+					<span class="about_word_success"></span>
+					<h5>购买成功</h5>
+					<p>您本次购买 <span id="balance" class="tx_em">{:$itemname}</span>，数量为 <span id="balance" class="tx_em">{:$itemNum}</span><br /></p>
+					<div class="p_tips_b" id="lottery">
+					<h4 class="guild" style="display:block;" id="tips2">购买后要刷新页面才能看得到买商品！</h4><p><span class="guild" id="lotterychance"></span></p>
+					</div>
+				</div>
+				<div class="about_btn " id="abtBtn">
+					<div id="left" class="detail">
+						<div class="code">
+						  <p id="leftCon">账户剩余：<span id="balance" class="tx_em">{:$yb}</span> 元宝，花了：<span id="balance" class="tx_em">{:$buy_fb}</span></p>
+						</div>
+					</div>
+				</div>
+			 </div>
+    	</div>
+    </body>
+</html>
+<script type="text/javascript">
+if({:$yes}==1){
+	document.write('<script type="text/javascript" src="{:$url}"><\/script>');
+}
+</script>

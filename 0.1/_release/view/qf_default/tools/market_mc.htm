@@ -1,0 +1,93 @@
+<!--{tpl inc_header}-->
+
+<div id="main">
+	<!--{tpl tools/market_menu}-->
+	<table class="list">
+		<tr>
+			<th width="80">交易号</th>
+			<th width="50">分类</th>
+			<th width="80">名称</th>
+			<th width="30">样式</th>
+			<th width="40">等级</th>
+			<th width="100">牧场单价</th>
+			<th width="100">用户售单价</th>
+			<th width="70">数量</th>
+			<th width="80">出售人</th>
+			<th width="100">购买数量</th>
+			<th width="100">执行操作</th>
+			<th width="100"><font color="#ff0000">与牧场价</font></th>
+		</tr>
+		<!--{foreach $list as $key=>$value}-->
+		<tr>
+			<td>{:$value[id]}</td>
+			<td><!--{if $value[mclass] == 4}--><!--{if $value[cid] > 10000}--><font color="#0000ff">整只</font><!--{else}--><font color="#ff00ff"><b>产品</b></font><!--{/if}--><!--{elseif $value[mclass] == 5}--><font color="#ff0000">道具</font><!--{/if}--></td>
+			<td><!--{if $value[mclass] == 4}--><!--{if $value[cid] > 10000 }-->{:$animaltype[$value[cid]-10000]['cName']}<!--{else}-->{:$animaltype[$value[cid]]['bName']}<!--{/if}--><!--{elseif $value[mclass] == 5}-->{:$toolstype[$value[cid]]['name']}<!--{/if}--></td>
+			<!--{if $value[mclass] == 5}-->
+			<td><img src="module/mc/farm/icon/t{:$value[cid]}.png" height="24px" /></td>
+			<!--{else}-->
+			<!--{if $value[cid] > 10000}-->
+			<td><img src="module/mc/farm/icon/a{:$value[cid]-10000}.png" height="24px" /></td>
+			<!--{else}-->
+			<td><img src="module/mc/farm/icon/p{:$value[cid]}.png" height="24px" /></td>
+			<!--{/if}--><!--{/if}-->
+			<td><!--{if $value[mclass] == 5}-->-<!--{else}--><!--{if $value[cid] > 10000 }-->{:$animaltype[$value[cid]-10000]['cLevel']}<!--{else}-->{:$animaltype[$value[cid]]['cLevel']}<!--{/if}--><!--{/if}--></td>
+			<!--{if $value[mclass] == 5}-->
+			<td><font color=blue>{:$toolstype[$value[cid]]['qdprice']*50}</font>金币</td>
+			<!--{else}-->
+			<!--{if $value[cid] > 10000 }-->
+			<td><font color=blue>{:$animaltype[$value[cid]-10000]['productprice']}</font>金币</td>
+			<!--{else}-->
+			<td><font color=blue>{:$animaltype[$value[cid]]['byproductprice']}</font>金币</td>
+			<!--{/if}--><!--{/if}-->
+			<td><font color="#ff0000">{:$value[cprice]}</font>金币</td>
+			<td><font color="#ff00ff">{:$value[cnumber]}</font>个</td>
+			<td><font color="#0000ff">{:$value[username]}</font></td>
+			<td><input type='text' id='number{:$value[id]}' size='10' value="{:$value[cnumber]}"/></td>
+			<!--{if $_QFG['uid'] == $value[selluid]}-->
+			<td><input type="button" onclick='request("tools.php?mod=market&act=mc&type=cancelitem&id={:$value[id]}", "state{:$value[id]}");' value='取消' /><span id="state{:$value[id]}"></span></td>
+			<!--{else}-->
+			<td><input type="button" onclick='request("tools.php?mod=market&act=mc&type=buyitem&id={:$value[id]}&number="+$("#number{:$value[id]}").value, "state{:$value[id]}");' value='购买' /><span id="state{:$value[id]}"></span></td>
+			<!--{/if}-->
+			<!--{if $value[mclass] == 5}-->
+			<!--{if $toolstype[$value[cid]]['qdprice']*50-$value[cprice]!=0}-->
+			<!--{if $toolstype[$value[cid]]['qdprice']*50-$value[cprice]>0}-->
+			<td>跌<font color="#0000ff">{:$toolstype[$value[cid]]['qdprice']*50-$value[cprice]}</font>金币</td>
+			<!--{else}-->
+			<td>涨<font color="#ff0000">{:$value[cprice]-$toolstype[$value[cid]]['qdprice']*50}</font>金币</td>
+			<!--{/if}-->
+			<!--{else}-->
+			<td><font color="#ff00ff">价钱一样</font></td>
+			<!--{/if}-->
+			<!--{else}-->
+			<!--{if $value[cid] > 10000 }-->
+			<!--{if $animaltype[$value[cid]-10000]['productprice']-$value[cprice]<>0}-->
+			<!--{if $animaltype[$value[cid]-10000]['productprice']-$value[cprice]>0}-->
+			<td>跌<font color=#0000ff>{:$animaltype[$value[cid]-10000]['productprice']-$value[cprice]}</font>金币</td>
+			<!--{else}-->
+			<td>涨<font color="#ff0000">{:$value[cprice]-$animaltype[$value[cid]-10000]['productprice']}</font>金币</td>
+			<!--{/if}-->
+			<!--{else}-->
+			<td><font color="#ff00ff">价钱一样</font></td>
+			<!--{/if}-->
+			<!--{else}-->
+			<!--{if $animaltype[$value[cid]]['byproductprice']-$value[cprice]<>0}-->
+			<!--{if $animaltype[$value[cid]]['byproductprice']-$value[cprice]>0}-->
+			<td>跌<font color="#0000ff">{:$animaltype[$value[cid]]['byproductprice']-$value[cprice]}</font>金币</td>
+			<!--{else}-->
+			<td>涨<font color="#ff0000">{:$value[cprice]-$animaltype[$value[cid]]['byproductprice']}</font>金币</td>
+			<!--{/if}-->
+			<!--{else}-->
+			<td><font color="#ff00ff">价钱一样</font></td>
+			<!--{/if}-->
+			<!--{/if}--><!--{/if}-->
+		</tr>
+		<!--{/foreach}-->
+	</table>
+	<div id="pages" class="multiPage"></div>
+</div>
+
+<script type="text/javascript">
+	$('#pages').innerHTML = multiPage({pid:"{:$pid}",purl:"{:$purl}",psize:"{:$psize}",count:"{:$count}"});
+</script>
+
+<!--{tpl inc_footer}-->

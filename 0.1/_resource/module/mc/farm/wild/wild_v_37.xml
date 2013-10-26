@@ -1,0 +1,83 @@
+<wild>
+    <folder url = "module/mc/" />
+    <wildmodule loader="module/mc/farm/wild/WildShell_v_33.swf">
+        <module name="scene" url="module/mc/farm/wild/WildScene_v_25.swf" start="1/1/2010 00:00:00" end="1/1/2099 00:00:00" >
+            <material url="module/mc/farm/wild/wild_ui_scene_v_6.swf"/>
+        </module>
+        <module name="tool" url="module/mc/farm/wild/ToolScene_v_24.swf" start="1/1/2010 00:00:00" end="1/1/2099 00:00:00">
+            <material url="module/mc/farm/wild/wild_ui_title_v_2.swf"/>
+            <material url="module/mc/farm/wild/wild_ui_tools_v_3.swf"/>
+        </module>
+    </wildmodule>
+
+    
+    
+    <beast maxRaiseNum="3" maxslotid="2" oneBloodPerSec="360"  stealInterval="3600" comaInterval="300" restInterval="300" oneExpPerSec="7200" needYlv="0" needFlv="0"  dy="[430,510,590]" dy1="[400,460,520]">
+    
+        <info id="1" name="野牛" blood="50" buyNeedExp="0" raiseTimes="12" handleSuccRate="71" handleBlood="5" price="10000" saleMoney="17959" raiseExp="3" stayExp="2" attackExp="1" finalAttackExp="3" height="127.8" isDisplay="1">
+            <tips><![CDATA[]]></tips>
+            <p bx="50" by="-120" ss="120" sb="30" dx="100" dy="-20" ss1="20" sb1="30">
+                <weapon>[-30,-70,30,40]</weapon>
+            </p>
+                <droprate type="9" id="1" />
+        </info>
+        <info id="2" name="臭鼬" blood="60" buyNeedExp="150" raiseTimes="12" handleSuccRate="71" handleBlood="5" price="11000" saleMoney="19700" raiseExp="4" stayExp="2" attackExp="1" finalAttackExp="3" height="101.2" isDisplay="1">
+            <tips><![CDATA[]]></tips>
+            <p bx="30" by="-120" ss="120" sb="40" dx="100" dy="-20" ss1="5" sb1="40">
+                <weapon>[15,-50,30,30]</weapon>
+            </p>
+                <droprate type="9" id="1" />
+        </info>
+        <info id="3" name="狐狸" blood="70" buyNeedExp="300" raiseTimes="12" handleSuccRate="71" handleBlood="5" price="12000" saleMoney="21550" raiseExp="5" stayExp="2" attackExp="1" finalAttackExp="3" height="114.7" isDisplay="1">
+            <tips><![CDATA[]]></tips>
+            <p bx="20" by="-120" ss="150" sb="50" dx="100" dy="-20" ss1="50" sb1="50">
+                <weapon>[18,-50,10,10]</weapon>
+            </p>
+                <droprate type="9" id="2" />
+        </info>
+        <info id="4" name="野猪" blood="80" buyNeedExp="450" raiseTimes="12" handleSuccRate="71" handleBlood="5" price="13500" saleMoney="24200" raiseExp="6" stayExp="2" attackExp="1" finalAttackExp="3" height="157" isDisplay="1">
+            <tips><![CDATA[]]></tips>
+            <p bx="50" by="-120" ss="110" sb="30" dx="100" dy="-20" ss1="0" sb1="30">
+                <weapon>[-40,-80,50,40]</weapon>
+            </p>
+                <droprate type="9" id="2" />
+        </info>
+        <info id="19" name="恐爪龙" blood="230" buyNeedExp="2700" raiseTimes="12" handleSuccRate="100" handleBlood="5" price="55600" saleMoney="99800" raiseExp="21" stayExp="2" attackExp="1" finalAttackExp="3" height="241.25" isDisplay="1">
+            <tips><![CDATA[]]></tips>
+            <p bx="60" by="-250" ss="110" sb="30" dx="100" dy="-20" ss1="0" sb1="30">
+                <weapon>[35,-130,10,40]</weapon>
+            </p>
+                <droprate type="9" id="5" />
+                <droprate type="9" id="6" />
+        </info>
+    </beast>
+<weapon vip_tip="&lt;font color='#000000'&gt;温馨提示：黄钻贵族每天&lt;b&gt;免费&lt;/b&gt;领箭矢&lt;/font&gt;&lt;a target='_blank' href='http://imgcache.qq.com/qzone/space_item/orig/0/hf_20090417.html'&gt;&lt;u&gt;&lt;font color='#FF0000'&gt;查看详情&lt;/font&gt;&lt;/u&gt;&lt;/a&gt;">
+    <info attacksucc="100" blood="12" desc="可减少野生动物体力12点，并获得更多水晶奖励。" id="1" name="青铜箭矢" price="0" qd="10" status="1" tips="对同一野生动物，只能使用1次武器。" vip_tip="&lt;font color='#000000'&gt;温馨提示：黄钻贵族每天&lt;b&gt;免费&lt;/b&gt;领箭矢&lt;/font&gt;&lt;a target='_blank' href='http://imgcache.qq.com/qzone/space_item/orig/0/hf_20090417.html'&gt;&lt;u&gt;&lt;font color='#FF0000'&gt;查看详情&lt;/font&gt;&lt;/u&gt;&lt;/a&gt;" yqd="8"/>
+    <info attacksucc="100" blood="19" desc="可减少野生动物体力19点，并获得更多水晶奖励。" id="2" name="银羽箭矢" price="0" qd="15" status="1" tips="对同一野生动物，只能使用1次武器。" vip_tip="&lt;font color='#000000'&gt;温馨提示：黄钻贵族每天&lt;b&gt;免费&lt;/b&gt;领箭矢&lt;/font&gt;&lt;a target='_blank' href='http://imgcache.qq.com/qzone/space_item/orig/0/hf_20090417.html'&gt;&lt;u&gt;&lt;font color='#FF0000'&gt;查看详情&lt;/font&gt;&lt;/u&gt;&lt;/a&gt;" yqd="12"/>
+    <info attacksucc="100" blood="26" desc="可减少野生动物体力26点，并获得更多水晶奖励。" id="3" name="黄金箭矢" price="0" qd="20" status="1" tips="对同一野生动物，只能使用1次武器。" vip_tip="&lt;font color='#000000'&gt;温馨提示：黄钻贵族每天&lt;b&gt;免费&lt;/b&gt;领箭矢&lt;/font&gt;&lt;a target='_blank' href='http://imgcache.qq.com/qzone/space_item/orig/0/hf_20090417.html'&gt;&lt;u&gt;&lt;font color='#FF0000'&gt;查看详情&lt;/font&gt;&lt;/u&gt;&lt;/a&gt;" yqd="16"/>
+    <info attacksucc="100" blood="6" desc="可减少野生动物体力6点，并获得更多水晶奖励。" id="4" name="水拔子" price="500" qd="0" status="1" tips="对同一野生动物，只能使用1次武器。" vip_tip="&lt;font color='#000000'&gt;温馨提示：黄钻贵族每天&lt;b&gt;免费&lt;/b&gt;领箭矢&lt;/font&gt;&lt;a target='_blank' href='http://imgcache.qq.com/qzone/space_item/orig/0/hf_20090417.html'&gt;&lt;u&gt;&lt;font color='#FF0000'&gt;查看详情&lt;/font&gt;&lt;/u&gt;&lt;/a&gt;" yqd="0"/>
+    <info attacksucc="100" blood="8" desc="可减少野生动物体力8点，并获得更多水晶奖励。" id="5" name="青铜飞刀" price="800" qd="0" status="1" tips="对同一野生动物，只能使用1次武器。" vip_tip="&lt;font color='#000000'&gt;温馨提示：黄钻贵族每天&lt;b&gt;免费&lt;/b&gt;领箭矢&lt;/font&gt;&lt;a target='_blank' href='http://imgcache.qq.com/qzone/space_item/orig/0/hf_20090417.html'&gt;&lt;u&gt;&lt;font color='#FF0000'&gt;查看详情&lt;/font&gt;&lt;/u&gt;&lt;/a&gt;" yqd="0"/>
+    <info attacksucc="100" blood="10" desc="可减少野生动物体力10点，并获得更多水晶奖励。" id="6" name="白银飞刀" price="1200" qd="0" status="1" tips="对同一野生动物，只能使用1次武器。" vip_tip="&lt;font color='#000000'&gt;温馨提示：黄钻贵族每天&lt;b&gt;免费&lt;/b&gt;领箭矢&lt;/font&gt;&lt;a target='_blank' href='http://imgcache.qq.com/qzone/space_item/orig/0/hf_20090417.html'&gt;&lt;u&gt;&lt;font color='#FF0000'&gt;查看详情&lt;/font&gt;&lt;/u&gt;&lt;/a&gt;" yqd="0"/>
+    <info attacksucc="100" blood="35" desc="可减少野生动物体力35点，并获得更多水晶奖励。" id="7" name="黄金飞刀" price="0" qd="30" status="1" tips="对同一野生动物，只能使用1次武器。" vip_tip="&lt;font color='#000000'&gt;温馨提示：黄钻贵族每天&lt;b&gt;免费&lt;/b&gt;领箭矢&lt;/font&gt;&lt;a target='_blank' href='http://imgcache.qq.com/qzone/space_item/orig/0/hf_20090417.html'&gt;&lt;u&gt;&lt;font color='#FF0000'&gt;查看详情&lt;/font&gt;&lt;/u&gt;&lt;/a&gt;" yqd="24"/>
+</weapon>
+
+<crystal>
+    <info id="1" name="蓝水晶" sale="10"/>
+    <info id="2" name="绿水晶" sale="10"/>
+    <info id="3" name="紫水晶" sale="10"/>
+    <info id="4" name="黄水晶" sale="10"/>
+    <info id="5" name="红水晶" sale="10"/>
+    <info id="6" name="青水晶" sale="10"/>
+    <info id="7" name="粉水晶" sale="10"/>
+    <info id="8" name="橙水晶" sale="10"/>
+    <info id="9" name="白水晶" sale="10"/>
+    <info id="10" name="黑水晶" sale="10"/>
+</crystal>
+
+<slot num="3">
+    <info id="0" price="150000"/>
+    <info id="1" price="300000"/>
+    <info id="2" price="600000"/>
+</slot>
+
+</wild>

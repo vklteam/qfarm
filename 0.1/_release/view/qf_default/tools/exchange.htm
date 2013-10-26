@@ -1,0 +1,37 @@
+<!--{tpl inc_header}-->
+
+<div id="main">
+<br />
+	<p>
+		<p>使用本站积分兑换，<FONT COLOR="#FF0000"><b>10</b></FONT> 个积分兑换 <FONT COLOR="#FF0000"><b>1</b></FONT> 个元宝</p>
+		请输入要兑换的元宝个数：<input type='text' id='yb' size='15' />
+		<input type="button" onclick='request("tools.php?mod=exchange&do=save&type=yb&number="+$("#yb").value, "state1");' value='确定兑换' />
+		<span id="state1"></span>
+	</p>
+	<br />
+	<p>
+		<p>使用本站积分兑换，<FONT COLOR="#FF0000"><b>1</b></FONT> 个积分兑换 <FONT COLOR="#FF0000"><b>100</b></FONT> 金币</p>
+		请输入要兑换的金币数：<input type='text' id='jb' size='15' /> x100
+		<input type="button" onclick='request("tools.php?mod=exchange&do=save&type=jb&number="+$("#jb").value, "state2");' value='确定兑换' />
+		<span id="state2"></span>
+	</p>
+	
+	<!--{if $_QSC[redeem]==1}-->	
+	<br />
+	<p>
+		<p>使用农场元宝兑换，<FONT COLOR="#FF0000"><b>1</b></FONT> 个元宝兑换 <FONT COLOR="#FF0000"><b>8</b></FONT> 个积分</p>
+		请输入要兑换的积分数：<input type='text' id='enyb' size='15' /> x8
+		<input type="button" onclick='request("tools.php?mod=exchange&do=save&type=enyb&number="+$("#enyb").value, "state3");' value='确定兑换' />
+		<span id="state3"></span>
+	</p>
+	<br />
+	<p>
+		<p>使用农场金币兑换，<FONT COLOR="#FF0000"><b>120</b></FONT> 金币兑换 <FONT COLOR="#FF0000"><b>1</b></FONT> 个积分 </p>
+		请输入要兑换的积分数：<input type='text' id='enjb' size='15' />
+		<input type="button" onclick='request("tools.php?mod=exchange&do=save&type=enjb&number="+$("#enjb").value, "state4");' value='确定兑换' />
+		<span id="state4"></span>
+	</p>
+	<!--{/if}-->
+</div>
+
+<!--{tpl inc_footer}-->

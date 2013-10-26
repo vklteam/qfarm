@@ -1,0 +1,48 @@
+<!--{tpl admin/inc_header}-->
+
+<form id="myform" onsubmit="return submits();">
+	<table class="edit">
+		<tr>
+			<td width="50px;">id</td>
+			<td width="100px;">{:$farm_list['id']}</td>
+		</tr>
+		<tr>
+			<td width="80px">名字</td>
+			<td>{:$farm_list['crop_name']} </td>
+		</tr>
+		<tr>
+			<td width="80px">收成经验</td>
+			<td><input type="text" name="exp" value="{:$farm_list['exp']}" /></td>
+		</tr>
+		<tr>
+			<td width="80px">预计收入</td>
+			<td><input type="text" name="lock_money" value="{:$farm_list['lock_money']}" /></td>
+		</tr>
+		<tr>
+			<td width="80px">成熟时间</td>
+			<td>{:$farm_list['cycle']['2']/3600}小时</td>
+		</tr>
+		<tr>
+			<td width="80px">产量</td>
+			<td><input type="text" name="output" value="{:$farm_list['output']}" /></td>
+		</tr>
+		<tr>
+			<td width="80px">鱼苗价格</td>
+			<td><input type="text" name="price" value="{:$farm_list['price']}" />  </td>
+		</tr>
+		<tr>
+			<td width="80px">鱼售价</td>
+			<td><input type="text" name="sale" value="{:$farm_list['sale']}" /></td>
+		</tr>
+	</table>
+	<input type="submit" value="提 交" /><span id="state"></span>
+</form>
+
+<script type="text/javascript">
+	function submits(inputId) {
+		request('admin.php?mod=cropstype_edit&submit=1&id={:$id}', 'state', $.getForm('#myform', 1));
+		return false;
+	}
+</script>
+
+<!--{tpl admin/inc_footer}-->

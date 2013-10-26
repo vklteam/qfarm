@@ -1,0 +1,92 @@
+﻿<!--{tpl inc_header}-->
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 04 Dec 1999 21:29:02 GMT">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+
+<div id="main_nmc"><div id="flashMain"></div></div>
+<!--{tpl inc_footer}-->
+<script type="text/javascript">
+	window.speedTimeStamp = {0:new Date()};
+	speedTimeStamp[1] = new Date();
+	var APP_ID = 358; //当前APPID
+	var SPEED_STAT_FLAG = [7721, 5, parent.QZONE ? 1 : 3];
+	document.write([
+		'<script type="text/javascript" src="script.php?conf&qzfl_for_qzone&c1"><\/script>',
+	].join(''));
+</script>
+
+<script type="text/javascript">
+	function Rand(){ 
+	var Num=Math.floor(Math.random()*1000000); 
+	document.write(Num); 
+	} 
+
+
+
+	speedTimeStamp[2] = new Date();
+	var NO_FLASH = 0; //如果不显示flash,请设置为1
+	var HIGH_LIGHT = 1; //当前高亮的标签
+	C.config.setFullFlag(false); //设置当前是否为大窗口
+	C.config.setTitle('QQ牧场'); //设置标题
+
+	var FLASH_VARS = {
+		"config_url_qz":"{:$xml}mc_main{:$_QSC['mc_version']}_{:FARM_DAY}.xml",
+		"config_url_xy":"{:$xml}mc_main{:$_QSC['mc_version']}_{:FARM_DAY}.xml",
+		"cardConfig_url_qz":"{:$xml}mc_card_{:FARM_DAY}.xml",
+		"cardConfig_url_xy":"{:$xml}mc_card_{:FARM_DAY}.xml",
+		"pasture_friend_list_mod_qz":"1000",
+		"pasture_friend_list_mod_xy":"1000",
+		"pasture_friend_list_qz":"1001-1002",
+		"pasture_friend_list_xy":"1001-1002",
+		"resolve_url":"",
+		"snowslide":"3",
+		"loadingUrl":"module/loading2_v_3.swf",
+		//"mill":"nmc.php?appid=376",
+		//"millLimitYDLevel":"1",
+		"pasture_enter":"1000",
+		"pasture_enter_mod":"1000",
+		"pasture_steal":"1000",
+		"pasture_steal_mod":"1000",
+		"pasture_steal_tips":"",
+		"pasture_friend_list_tips":"",
+		"pasture_enter_tips":"为保证更加稳定的服务，系统正在进行分号段数据维护。在此时间段系统将暂时关闭牧场以保护您的数据安全。感谢您的理解与支持！",
+		"index_tips":"系统维护中，请耐心等待。",
+		"steal_tips_2":"系统维护中，暂时不能摘取，请稍后再试。",
+		"friend_list_tips_2":"系统维护中，暂时不能查看好友信息，请稍后再试。",
+		"millLimitYDLevel":"1",
+		"qixiPrepareTime":"2010-9-19 00:00:00",
+		"qixiBeginTime":"2010-9-19 23:35:00",
+		"qixiEndTime":"2010-9-26 00:05:00",
+		"missionPrepareTime":"2010-9-8 02:00:00",
+		"missionAutumnBeginTime":"2010-9-20 00:00:00",
+		"missionNationalBeginTime":"2010-9-26 00:00:00",
+		"missionEndTime":"2010-10-9 00:10:00",
+		"filterUrl":"http://qbar.qq.com/application/r/?839782",
+		"animalConfig_url_qz":"module/mc/xml/animal_v_{:$animalConfig}.xml",
+		"animalConfig_url_xy":"module/mc/xml/animal_v_{:$animalConfig}.xml",
+		"addon":"",
+		"useflag":"11111111",
+		"usercheck":"",
+		"app_status_bitmap":"000000000000000f",
+		 "app_request_num":"0"
+	};
+	FLASH_VARS.mode = SwfAppLib.platform.isQzone ? 1 : 2;
+	FLASH_VARS.pageDomain = document.domain;
+	
+	//@dante 部分需要canvas cgi输出
+	var FLASH_PARAMS = {
+		"id":"swfAppObject",
+		"width":"100%",
+		"height":"560",
+		"menu":"false",
+		"scale":"noScale",
+		"allowFullscreen":"true",
+		"allowScriptAccess":"always",
+		"bgcolor":"#FFFFFF",
+		"wmode":"opaque",
+		"src":"{:$mc_src}"
+	};
+	window.SPECIAL && SPECIAL.flash(FLASH_VARS, FLASH_PARAMS);
+	FLASH_PARAMS.flashvars = C.util.convertFlashVars(FLASH_VARS);
+	var MINI_PORTAL_VER = '20110802';
+	window.init && init();
+</script>

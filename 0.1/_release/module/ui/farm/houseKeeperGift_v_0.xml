@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<main>
+	<!--sid：1为农场礼包。2为牧场礼包-->
+	<gift id="1" sid='2' name='极速罐头' num='5' cla='Tool_7_3' type='1' per='个'/>
+	<gift id="2" sid='1' name='普通狗粮' num='7' vid='9001' type='909090' per='天'/>
+	<gift id="3" sid='2' name='鸿雁' num='2' cla='a1087' type='1' per='只'/>
+	<gift id="4" sid='1' name='飞速化肥' num='5' vid='7' type='3' per='袋'/>
+	<gift id="5" sid='1' name='风信子种子' num='2' vid='112' type='1' per='个'/>
+</main>

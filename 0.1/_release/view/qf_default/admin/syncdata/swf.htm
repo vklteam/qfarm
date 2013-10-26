@@ -1,0 +1,73 @@
+<!--{tpl admin/inc_header}-->
+<style>
+.cspan{color:blue;cursor:hand}
+</style>
+
+<table class="list">
+<th>农场TX配置[点击获取]</th>
+<th>农场本地配置[点击备份]</th>
+<th>农场YE配置[点击获取]</th>
+<tr>
+<td>
+<span onClick="submits('nc_crop','{:$value['nc_module']}','module/ui/x.swf','1')" title="获取" class="cspan">
+{:preg_replace($replace_ncword,'',$value['nc_module'])} 
+</span><br>
+<!--{foreach $value['nc_material'] as $floder=>$curl}-->
+<span onClick="submits('nc_crop','{:$curl}','{:$floder}','')" title="获取" class="cspan">{:$floder}</span><br>
+<!--{/foreach}-->
+</td>
+<td>
+<span onClick="submitback('nc_crop','{:$value['d_nc_module']}')" class="cspan" title="备份">{:$value['d_nc_module']}</span><br>
+<!--{foreach $value['d_nc_material'] as $dfloder=>$curl}-->
+<span onClick="submitback('nc_crop','{:$floder}')" class="cspan" title="备份">{:$dfloder}</span><br>
+<!--{/foreach}-->
+</td>
+<td>
+<span onClick="submits('nc_crop','{:$p_ncswf}','module/ui/x.swf','')" title="获取" class="cspan">{:preg_replace($replace_ncword,'',$value['nc_module'])} </span>
+</td>
+</tr>
+<th>牧场TX配置[点击获取]</th>
+<th>牧场本地配置[点击备份]</th>
+<th>牧场YE配置[点击获取]</th>
+</tr>
+<tr>
+<td>
+<!--{foreach $value['mc_module'] as $floder=>$curl}-->
+<span onClick="submits('mc_module','{:$curl}','{:$floder}','')" title="获取" class="cspan">{:$floder}</span><br>
+<!--{/foreach}-->
+<!--{foreach $value['mc_material'] as $floder=>$curl}-->
+<span onClick="submits('mc_animal','{:$curl}','{:$floder}','')" title="获取" class="cspan">{:$floder}</span><br>
+<!--{/foreach}-->
+</td>
+<td>
+<!--{foreach $value['d_mc_module'] as $floder=>$curl}-->
+<span onClick="submitback('mc_animal','{:$floder}')" class="cspan" title="备份">{:$floder}</span><br>
+<!--{/foreach}-->
+<!--{foreach $value['d_mc_material'] as $floder=>$curl}-->
+<span onClick="submitback('mc_animal','{:$floder}')" class="cspan" title="备份">{:$floder}</span><br>
+<!--{/foreach}-->
+</td>
+<td>
+<!--{foreach $value['mc_module'] as $floder=>$curl}-->
+<span onClick="submits('mc_module','{:$p_mcswf}','module/mc/x.swf','')" title="获取" class="cspan">{:$floder}</span><br>
+<!--{php break}-->
+<!--{/foreach}-->
+</td>
+</tr>
+<tr>
+<td></td>
+<td><span id="stat"></span></td>
+<td></td>
+</tr>
+</table>
+<script type="text/javascript">
+	function submits(type,updown,path,dot) {
+		request('admin.php?mod=syncdata&sync='+type+'&dot='+dot+'&updown='+updown+'&path='+path,'stat');
+		return false;
+	}
+	function submitback(type,file) {
+		request('admin.php?mod=syncdata&sync='+type+'&back='+file,'stat');
+		return false;
+	}
+</script>
+<!--{tpl admin/inc_footer}-->

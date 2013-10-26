@@ -1,0 +1,112 @@
+<!--{tpl admin/inc_header}-->
+
+<table border='0' cellspacing='10'>
+<form id="system_config" onsubmit="return submits();">
+	<tr>
+		<td width=20% align="right"><b>管理列表</b></td>
+		<td><input type="text" name="adminer" value="{:implode($_QSC['adminer'], ',')}" style="width:300px;" /> [格式为: 1,2,3,4...]</td>
+	</tr>
+	<tr>
+		<td align="right"><b>启用gzip</b></td><td><input type="radio" name="gzipcompress" value="1" {if $_QSC['gzipcompress']==1}checked="checked"{/if}/>启用<input type="radio" name="gzipcompress" value="0" {if $_QSC['gzipcompress']==0}checked="checked"{/if}/>关掉(生成XML)</td>
+	</tr>
+	<tr>
+		<td align="right"><b>好友类型</b></td><td><input type="radio" name="friendType" value="1" {if $_QSC['friendType']==1}checked="checked"{/if}/>默认好友 <input type="radio" name="friendType" value="2" {if $_QSC['friendType']==2}checked="checked"{/if}/>全站好友</td>
+	</tr>
+	<tr>
+		<td align="right"><b>用户最大好友数</b></td>
+		<td><input type="text" name="friendNumber" value="{:$_QSC['friendNumber']}" style="width:50px;" /> [最好不要大过1000人，人数越多越会搞错你的服务器]</td>
+	</tr>
+	<tr>
+		<td align="right"><b>对应积分参数</b></td>
+		<td><input type="text" name="creditType" value="{:$_QSC['creditType']}" style="width:200px;" /> </td>
+	</tr>
+	<tr>
+		<td align="right"><b>积分反向兑换</b></td><td><input type="radio" name="redeem" value="0" {if $_QSC['redeem']==0}checked="checked"{/if}/>关闭<input type="radio" name="redeem" value="1" {if $_QSC['redeem']==1}checked="checked"{/if}/>开启</td>
+	</tr>
+	<tr>
+		<td align="right"><b>VIP偷菜</b></td><td><input type="radio" name="vip" value="0" {if $_QSC['vip']==0}checked="checked"{/if}/>关闭<input type="radio" name="vip" value="1" {if $_QSC['vip']==1}checked="checked"{/if}/>开启</td>
+	</tr>
+	<tr>
+		<td align="right"><b>VIP免费装饰级别</b></td>
+		<td><input type="text" name="diyLimitYDLevel" value="{:$_QSC['diyLimitYDLevel']}" style="width:50px;" /> VIP[1、2……7]</td>
+	</tr>
+	<tr>
+		<td align="right"><b>头像调用</b></td><td><input type="radio" name="avatarStatic" value="0" {if $_QSC['avatarStatic']==0}checked="checked"{/if}/>动态调用<input type="radio" name="avatarStatic" value="1" {if $_QSC['avatarStatic']==1}checked="checked"{/if}/>静态调用</td>
+	</tr>
+	<tr>
+		<td align="right"><b>开启活动</b></td>
+		<td><input type="text" name="missionName" value="{:$_QSC['missionName']}" style="width:50px;" /> [名称请查看QFarm/source/nc/mission/]</td>
+	</tr>
+	<tr>
+		<td align="right"><b>系统风格</b></td>
+		<td>
+			<select name='view_tplId'>
+			<!--{foreach $views as $v}-->
+			<option value="{:$v}"{if $v==$_QSC['view']['tplId']} selected{/if}>{:$v}</option>
+			<!--{/foreach}-->
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right"><b>音乐播放器</b></td>
+		<td><input type="radio" name="view_player" value="0" {if $_QSC['view']['player']==0}checked="checked"{/if}/>关闭 <input type="radio" name="view_player" value="1" {if $_QSC['view']['player']==1}checked="checked"{/if}/>打开</td>
+	</tr>
+	<tr>
+		<td align="right"><b>初始金币</b></td>
+		<td><input type="text" name="init_money" value="{:$_INIT['money']}" style="width:300px;" /></td>
+	</tr>
+	<tr>
+		<td align="right"><b>初始元宝</b></td>
+		<td><input type="text" name="init_yb" value="{:$_INIT['yb']}" style="width:300px;" /></td>
+	</tr>
+	<tr>
+		<td align="right"><b>初始农场经验</b></td>
+		<td><input type="text" name="init_nc_exp" value="{:$_INIT['nc_exp']}" style="width:300px;" /></td>
+	</tr>
+	<tr>
+		<td align="right"><b>初始牧场经验</b></td>
+		<td><input type="text" name="init_mc_exp" value="{:$_INIT['mc_exp']}" style="width:300px;" /></td>
+	</tr>
+	<tr>
+		<td align="right"><b>隐藏鱼苗</b><br>[格式为: 1,2,3,4...]</td>
+		<td><textarea name="hide_fish" style="width:500px;height:100px;">{:implode($_HIDE['fish'], ',')}</textarea> </td>
+	</tr>
+	<tr>
+		<td align="right"><b>隐藏种子</b><br>[格式为: 1,2,3,4...]</td>
+		<td><textarea name="hide_seed" style="width:500px;height:100px;">{:implode($_HIDE['seed'], ',')}</textarea> </td>
+	</tr>
+	<tr>
+		<td align="right"><b>隐藏装饰品</b><br>[格式为：1,2,3,4...]</td>
+		<td><textarea name="hide_item" style="width:500px;height:100px;">{:implode($_HIDE['item'], ',')}</textarea> </td>
+	</tr>
+	<tr>
+		<td align="right"><b>隐藏幼崽</b><br>[格式为: 1,2,3,4...]</td>
+		<td><textarea name="hide_animal" style="width:500px;height:100px;">{:implode($_HIDE['animal'], ',')}</textarea> </td>
+	</tr>
+	<tr>
+		<td align="right"><b>隐藏牧场装饰品</b><br>[格式为：1,2,3,4...]</td>
+		<td><textarea name="hide_mcitem" style="width:500px;height:100px;">{:implode($_HIDE['mcitem'], ',')}</textarea> </td>
+	</tr>
+	<tr>
+		<td align="right"><b>关闭农场</b></td>
+		<td><input type="radio" name="closefarm" value="0" {if $_QSC['closefarm']==0} checked="checked"{/if} />关闭 <input type="radio" name="closefarm" value="1" {if $_QSC['closefarm']==1} checked="checked"{/if}/>打开</td>
+	</tr>
+	<tr>
+		<td align="right"><b>关闭农场说明</b></td>
+		<td><textarea name="closeinfo" style="width:500px;height:100px;">{:$_QSC['closeinfo'] }</textarea></td>
+	</tr>		
+	<tr>
+		<td colspan="2" align="center"><input type="submit" value="提 交"><span id="state"></span></td>
+	</tr>
+</form>
+</table>
+
+<script type="text/javascript">
+	function submits(inputId) {
+		param = $.getForm('#system_config', 1);
+		request('admin.php?mod=system&submit=1', 'state', param);
+		return false;
+	}
+</script>
+
+<!--{tpl admin/inc_footer}-->
